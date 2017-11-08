@@ -1,4 +1,4 @@
-# Unary Short-circuit Operator for JavaScript
+# Unary Short-circuit Operators for JavaScript
 
 ## Status
 Current Stage:
@@ -8,7 +8,7 @@ Current Stage:
 * Wyatt Arent ([github](https://github.com/warent), [linkedin](https://www.linkedin.com/in/warent/), [hacker news](https://news.ycombinator.com/user?id=warent))
 
 ## Overview and motivation
-When a variable exists but it's truthiness is unknown, it is standard to utilize short-circuit logic to set the variable.
+When a variable exists but its truthiness is unknown, it is standard to utilize short-circuit logic to set the variable.
 ```javascript
 // Greets a person. If no name is assigned, rename to "stranger"
 function greet(people) {
@@ -20,7 +20,7 @@ function greet(people) {
 ```
 This works well, but is verbose and redundant. `person.name` is referenced twice, and while this doesn't have any meaningful impact on performance, it does make the code unnecessarily repetitive with no added value.
 
-The unary short-circuit operators are intended to make code more elegant, terse, and reduce energy expenditure when mentally parsing the code.
+The unary short-circuit operators are intended to make code more elegant and terse.
 
 ## Syntax
 ### Unary OR
