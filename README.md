@@ -40,13 +40,11 @@ function greet(people) {
 *Base case*. When the left-hand variable is truthy, evaluate and assign the right-hand value. Otherwise, keep original value.
 
 ```javascript
-// Greets a person. Apply withContext if exists. If no name is assigned, rename to "stranger"
-function greet(people, context) {
-    for (let person of people) {
-        person.withContext &&= person.withContext(context);
-        person.name ||= "stranger";
-        console.log("Hello, " + person.name);
-    }
+function render() {
+    let toRender = this.props.component;
+    toRender ||= this.props.fallbackComponent;
+    toRender &&= this.modulate(toRender);
+    return toRender || "No component available!";
 }
 ```
 
