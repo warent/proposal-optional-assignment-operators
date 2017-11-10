@@ -23,7 +23,7 @@ This works well, but is verbose and redundant. `person.name` is referenced twice
 The same applies for more functional applications.
 ```javascript
 function render() {
-    let toRender = this.props.component || this.props.fallbackComponent;
+    let toRender = this.props.component;
     toRender = toRender && this.modulatePass1(toRender);
     toRender = toRender && this.modulatePass2(toRender);
     toRender = toRender && this.modulatePass3(toRender);
@@ -53,7 +53,7 @@ function greet(people) {
 
 ```javascript
 function render() {
-    let toRender = this.props.component || this.props.fallbackComponent;
+    let toRender = this.props.component;
     toRender &&= this.modulatePass1(toRender);
     toRender &&= this.modulatePass2(toRender);
     toRender &&= this.modulatePass3(toRender);
