@@ -1,4 +1,4 @@
-# Unary Short-circuit Operators for JavaScript
+# Optional Assignment Operators for JavaScript
 
 ## Status
 Current Stage:
@@ -32,10 +32,10 @@ function render() {
 ```
 Again, here we're seeing a lot of repetitions--almost as much as using the ternary conditional. Even with full if/then/else conditionals this code just becomes bloated.
 
-The unary short-circuit operators are intended to make code more elegant and terse.
+The optional assignments are intended to make code more elegant and terse.
 
 ## Syntax
-### Unary OR
+### Optional OR
 *Base case*. When the left-hand variable is falsey, evaluate and assign the right-hand value. Otherwise, keep original value.
 
 ```javascript
@@ -48,7 +48,7 @@ function greet(people) {
 }
 ```
 
-### Unary AND
+### Optional AND
 *Base case*. When the left-hand variable is truthy, evaluate and assign the right-hand value. Otherwise, keep original value.
 
 ```javascript
