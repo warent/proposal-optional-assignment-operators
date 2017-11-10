@@ -27,7 +27,7 @@ function render() {
     toRender = toRender && this.modulatePass1(toRender);
     toRender = toRender && this.modulatePass2(toRender);
     toRender = toRender && this.modulatePass3(toRender);
-    return toRender || "No component available!";
+    return toRender;
 }
 ```
 Again, here we're seeing a lot of repetitions--almost as much as using the ternary conditional. Even with full if/then/else conditionals this code just becomes bloated.
@@ -57,7 +57,7 @@ function render() {
     toRender &&= this.modulatePass1(toRender);
     toRender &&= this.modulatePass2(toRender);
     toRender &&= this.modulatePass3(toRender);
-    return toRender || "No component available!";
+    return toRender;
 }
 ```
 
