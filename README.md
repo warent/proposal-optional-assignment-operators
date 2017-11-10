@@ -41,8 +41,7 @@ function greet(people) {
 
 ```javascript
 function render() {
-    let toRender = this.props.component;
-    toRender ||= this.props.fallbackComponent;
+    let toRender = this.props.component || this.props.fallbackComponent;
     toRender &&= this.modulate(toRender);
     return toRender || "No component available!";
 }
