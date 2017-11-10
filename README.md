@@ -8,7 +8,7 @@ Current Stage:
 * Wyatt Arent ([github](https://github.com/warent), [linkedin](https://www.linkedin.com/in/warent/), [hacker news](https://news.ycombinator.com/user?id=warent))
 
 ## Overview and motivation
-When a variable exists but its truthiness is unknown, it is standard to utilize short-circuit logic to set the variable.
+When a variable exists but its truthiness is unknown, it is standard to utilize short-circuit logic to ensure a default value.
 ```javascript
 // Greets a person. If no name is assigned, rename to "stranger"
 function greet(people) {
@@ -19,6 +19,18 @@ function greet(people) {
 }
 ```
 This works well, but is verbose and redundant. `person.name` is referenced twice, and while this doesn't have any meaningful impact on performance, it does make the code unnecessarily repetitive with no added value.
+
+The same applies for more functional applications.
+```javascript
+function render() {
+    let toRender = this.props.component || this.props.fallbackComponent;
+    toRender = toRender && this.modulatePass1(toRender);
+    toRender = toRender && this.modulatePass2(toRender);
+    toRender = toRender && this.modulatePass3(toRender);
+    return toRender || "No component available!";
+}
+```
+Again, here we're seeing a lot of repetitions--almost as much as using the ternary conditional. Even with full if/then/else conditionals this code just becomes bloated.
 
 The unary short-circuit operators are intended to make code more elegant and terse.
 
@@ -42,7 +54,9 @@ function greet(people) {
 ```javascript
 function render() {
     let toRender = this.props.component || this.props.fallbackComponent;
-    toRender &&= this.modulate(toRender);
+    toRender &&= this.modulatePass1(toRender);
+    toRender &&= this.modulatePass2(toRender);
+    toRender &&= this.modulatePass3(toRender);
     return toRender || "No component available!";
 }
 ```
